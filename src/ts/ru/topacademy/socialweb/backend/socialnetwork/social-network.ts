@@ -1,18 +1,28 @@
+import { Friendship } from "../friendships/Friendship.ts";
+import { User } from "../users/User.ts";
+
 export class SocialNetwork {
+    users: User[];
+    friendships: Friendship[];
+    ids: [];
+    
     constructor() {
         this.users = [];
         this.friendships = [];
         this.ids = [];
     }
 
-    addUser(user) { this.users.push(user) }
-    addFriendship(friendship) { this.friendships.push(friendship) }
-    findUser(id) { return this.users.find(user => user.id == id)}
-    getFriends(id) { 
-        let currentEdges = []
+    addUser(user: User): void { this.users.push(user); }
+
+    addFriendship(friendship: Friendship): void { this.friendships.push(friendship); }
+    
+    findUser(id: number) { return this.users.find(user => user.id == id)}
+    
+    getFriends(id: number): Friendship[] { 
+        let currentEdges: Friendship[] = [];
         this.friendships.forEach(friendship => {
             if(friendship.from == id) {
-                currentEdges.push(this.friendships.find(node => node.to == friendship.to))
+                currentEdges.push(friendship)
             }
         })
         

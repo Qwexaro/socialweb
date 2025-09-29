@@ -1,6 +1,6 @@
-import { Friendship } from "../backend/friendships/Friendship.js";
-import { SocialNetwork } from "../backend/socialnetwork/SocialNetwork.js";
-import { User } from "../backend/users/User.js";
+import { Friendship } from "../backend/friendships/Friendship.ts";
+import { SocialNetwork } from "../backend/socialnetwork/social-network.ts";
+import { User } from "../backend/users/User.ts";
 
 const socialWeb = new SocialNetwork();
 
