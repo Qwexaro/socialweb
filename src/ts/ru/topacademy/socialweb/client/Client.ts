@@ -23,3 +23,6 @@ console.log(socialWeb.friendships);
 console.log(socialWeb.findUser(3));
 
 console.log(socialWeb.getFriends(1));
+
+console.log("dfs: ");
+console.log(socialWeb.dfs(1));

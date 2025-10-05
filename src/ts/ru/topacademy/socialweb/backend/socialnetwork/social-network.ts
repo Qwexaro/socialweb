@@ -28,6 +28,28 @@ export class SocialNetwork {
         
         return currentEdges;
     }
+
+    dfs(startId: number): User[] {
+        const visited = new Set<number>();
+        const result: User[] = [];
+
+        const dfsVisit = (id: number) => {
+            if (visited.has(id)) return;
+            visited.add(id);
+
+            const user = this.findUser(id);
+            if (!user) return;
+            result.push(user);
+
+            const friends = this.getFriends(id);
+            for (const friendship of friends) {
+                dfsVisit(friendship.to);
+            }
+        }
+
+        dfsVisit(startId);
+        return result;
+    }
 }
 
 // TODOO
